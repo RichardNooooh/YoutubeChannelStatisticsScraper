@@ -71,8 +71,13 @@ def main():
             videoID_list.append(videoID)
 
     #get data per video ID
-    uprint(videoID_list)
-    uprint("\n Length of list:" + str(len(videoID_list)))
+    for vid_id in videoID_list:
+        request = youtube.videos().list(
+            part="snippet,contentDetails,statistics",
+            id=vid_id
+        )
+        response = request.execute()
+        uprint(str(response) + "\n")
 
 if __name__ == "__main__":
     main()
