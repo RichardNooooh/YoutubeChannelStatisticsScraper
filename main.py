@@ -62,13 +62,17 @@ def main():
             )
         else:
             has_next = False
-    uprint(list_of_playlistItems)
 
     #Get list of video IDs
-    #for playlistItems in list_of_playlistItems:
-#for item in playlistItems["items"]:
+    videoID_list = []
+    for playlistItems in list_of_playlistItems:
+        for item in playlistItems["items"]:
+            videoID = item["snippet"]["resourceId"]["videoId"]
+            videoID_list.append(videoID)
 
-
+    #get data per video ID
+    uprint(videoID_list)
+    uprint("\n Length of list:" + str(len(videoID_list)))
 
 if __name__ == "__main__":
     main()
