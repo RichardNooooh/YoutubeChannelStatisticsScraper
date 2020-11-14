@@ -73,7 +73,7 @@ def main():
     #get data per video ID
     for vid_id in videoID_list:
         request = youtube.videos().list(
-            part="snippet,contentDetails,statistics",
+            part="snippet,contentDetails,statistics,topicDetails",
             id=vid_id
         )
         response = request.execute()
